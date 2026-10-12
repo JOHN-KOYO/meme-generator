@@ -1,0 +1,271 @@
+.form {
+  max-width: 700px;
+  margin: 40px auto;
+  padding: 30px;
+
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+
+  background: linear-gradient(135deg, #ffffff, #f4f7ff);
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgba(31, 38, 135, 0.15);
+
+  border: 1px solid #e3e8f7;
+}
+
+.form label {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+
+  color: #252b42;
+  font-size: 15px;
+  font-weight: 600;
+}
+
+.form input {
+  width: 100%;
+  box-sizing: border-box;
+
+  padding: 13px 15px;
+
+  border: 2px solid #d9def0;
+  border-radius: 10px;
+
+  background-color: #ffffff;
+  color: #252b42;
+
+  font-size: 15px;
+  outline: none;
+
+  transition: 
+      border-color 0.25s ease,
+      box-shadow 0.25s ease,
+      transform 0.2s ease;
+}
+
+.form input::placeholder {
+  color: #9aa3b8;
+}
+
+.form input:focus {
+  border-color: #6366f1;
+
+  box-shadow: 0 0 0 4px rgba(99, 102, 241, 0.12);
+
+  transform: translateY(-1px);
+}
+
+.form button {
+  grid-column: 1 / -1;
+
+  width: 100%;
+  padding: 14px 20px;
+
+  border: none;
+  border-radius: 10px;
+
+  background: linear-gradient(135deg, #6366f1, #8b5cf6);
+  color: white;
+
+  font-size: 16px;
+  font-weight: 700;
+
+  cursor: pointer;
+
+  box-shadow: 0 6px 15px rgba(99, 102, 241, 0.25);
+
+  transition:
+      transform 0.2s ease,
+      box-shadow 0.2s ease,
+      background 0.2s ease;
+}
+
+.form button:hover {
+  background: linear-gradient(135deg, #4f46e5, #7c3aed);
+
+  transform: translateY(-2px);
+
+  box-shadow: 0 10px 20px rgba(99, 102, 241, 0.3);
+}
+
+.form button:active {
+  transform: translateY(0);
+
+  box-shadow: 0 4px 10px rgba(99, 102, 241, 0.2);
+}
+@media (max-width: 600px) {
+  .form {
+      grid-template-columns: 1fr;
+      margin: 20px;
+      padding: 20px;
+  }
+
+  .form button {
+      grid-column: 1;
+  }
+}
+/* =========================
+   MEME DISPLAY
+========================= */
+
+.meme {
+  position: relative;
+
+  width: min(700px, 90%);
+  margin: 45px auto 60px;
+
+  overflow: hidden;
+
+  border-radius: 18px;
+
+  background: #111827;
+
+  box-shadow:
+      0 20px 40px rgba(15, 23, 42, 0.25),
+      0 5px 15px rgba(99, 102, 241, 0.15);
+
+  transition:
+      transform 0.3s ease,
+      box-shadow 0.3s ease;
+}
+
+/* Slight lift when the user hovers over the meme */
+
+.meme:hover {
+  transform: translateY(-5px);
+
+  box-shadow:
+      0 25px 50px rgba(15, 23, 42, 0.3),
+      0 8px 20px rgba(99, 102, 241, 0.2);
+}
+
+
+/* =========================
+ MEME IMAGE
+========================= */
+
+.meme img {
+  display: block;
+
+  width: 100%;
+  height: auto;
+
+  object-fit: cover;
+
+  border-radius: 18px;
+
+  transition: transform 0.4s ease;
+}
+
+/* Slight zoom when hovering */
+
+.meme:hover img {
+  transform: scale(1.02);
+}
+
+
+/* =========================
+ MEME TEXT
+========================= */
+
+.meme .top,
+.meme .bottom {
+  position: absolute;
+
+  left: 50%;
+
+  width: 90%;
+
+  transform: translateX(-50%);
+
+  color: white;
+
+  text-align: center;
+
+  font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+
+  font-size: clamp(2rem, 5vw, 4rem);
+
+  font-weight: 900;
+
+  line-height: 1.05;
+
+  text-transform: uppercase;
+
+  letter-spacing: 1px;
+
+  /* Classic meme text outline */
+
+  text-shadow:
+      -3px -3px 0 #000,
+       3px -3px 0 #000,
+      -3px  3px 0 #000,
+       3px  3px 0 #000,
+      -4px  0   0 #000,
+       4px  0   0 #000,
+       0   -4px 0 #000,
+       0    4px 0 #000;
+}
+
+
+/* =========================
+ TOP TEXT
+========================= */
+
+.meme .top {
+  top: 20px;
+}
+
+
+/* =========================
+ BOTTOM TEXT
+========================= */
+
+.meme .bottom {
+  bottom: 20px;
+}
+
+
+/* =========================
+ MOBILE RESPONSIVENESS
+========================= */
+
+@media (max-width: 600px) {
+
+  .meme {
+      width: 90%;
+
+      margin-top: 30px;
+
+      border-radius: 12px;
+  }
+
+  .meme img {
+      border-radius: 12px;
+  }
+
+  .meme .top,
+  .meme .bottom {
+      width: 94%;
+
+      font-size: clamp(1.5rem, 8vw, 2.5rem);
+
+      letter-spacing: 0.5px;
+
+      text-shadow:
+          -2px -2px 0 #000,
+           2px -2px 0 #000,
+          -2px  2px 0 #000,
+           2px  2px 0 #000;
+  }
+
+  .meme .top {
+      top: 12px;
+  }
+
+  .meme .bottom {
+      bottom: 12px;
+  }
+}
